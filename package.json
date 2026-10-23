@@ -2,7 +2,7 @@
   "name": "sktestlab",
   "displayName": "SkTestLab — Skript Testing & Diagnostics",
   "description": "Write. Test. Debug. Perfect. Skript diagnostics and native offline and isolated Paper testing.",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "publisher": "dheaven",
   "author": "DHeaven",
   "license": "MIT",

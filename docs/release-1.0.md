@@ -1,6 +1,6 @@
 # SkTestLab 1.0.0 acceptance checklist
 
-Current candidate: **0.4.1**. This is a free MIT VS Code testing tool for the skUnity Skript Tools category. A Marketplace listing is optional for distributing a VSIX on skUnity.
+Current candidate: **0.5.0**. This is a free MIT VS Code testing tool for the skUnity Skript Tools category. A Marketplace listing is optional for distributing a VSIX on skUnity.
 
 ## Completed
 

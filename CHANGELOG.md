@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0 — 2026-10-23
+
+- Redesigned the dashboard with a measured run snapshot, results before analytics, clearer runtime readiness, and more readable result controls.
+- Refined White and Dark palettes, navigation, typography, cards, and narrow layouts while retaining Follow VS Code and high contrast support.
+- Pass-rate snapshots distinguish incomplete execution from a fully passing run; empty histories do not display an invented percentage.
+
 ## 0.4.1 — 2026-10-23
 
 - Configure the owner-provided public repository, homepage and GitHub Issues support metadata.

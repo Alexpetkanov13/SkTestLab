@@ -109,6 +109,20 @@ it("has no invented pass rate or metrics for an empty history", () => {
   expect(html).not.toContain("100%");
   expect(html).toContain("Setup needs attention");
   expect(html).toContain("Analyze workspace to see findings");
+  expect(html).toContain("Awaiting a run");
+  expect(html).toContain('stroke-dasharray="0 100"');
+});
+it("shows measured run health and keeps results before analytics", () => {
+  const html = renderDashboard(
+    { ...data, runs: [run([result("passed"), result("skipped", "two")])] },
+    resources,
+  );
+  expect(html).toContain("Execution incomplete");
+  expect(html).toContain('stroke-dasharray="50 100"');
+  expect(html.indexOf('id="results"')).toBeLessThan(
+    html.indexOf('aria-label="Run insights"'),
+  );
+  expect(html).toContain("2 of 5 runtime settings selected");
 });
 it("compares failure regressions by file and ID rather than display name", () => {
   expect(regressions(run([result("failed")]), run([result("passed")]))).toBe(1);

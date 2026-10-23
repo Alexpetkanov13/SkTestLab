@@ -6,7 +6,7 @@ Title: **SkTestLab — Skript Testing & Diagnostics for VS Code**
 
 Tagline: **Check your scripts, run real Paper tests, and inspect the evidence in VS Code.**
 
-Version: use the exact included VSIX version. Current build is **0.4.1 preview**, not 1.0.0.
+Version: use the exact included VSIX version. Current build is **0.5.0 preview**, not 1.0.0.
 
 Price/license: **Free · MIT open source**
 

@@ -1,4 +1,4 @@
-# skUnity listing — 1.0.1
+# skUnity listing — 1.0.0
 
 Category: **Skript Tools**
 
@@ -6,7 +6,7 @@ Title: **SkTestLab — Skript Testing & Diagnostics for VS Code**
 
 Tagline: **Write Skript. Run real tests. Ship with confidence.**
 
-Version: use the exact included VSIX version. Current release is **1.0.1**.
+Version: use the exact included VSIX version. Current release is **1.0.0**.
 
 Price/license: **Free · MIT open source**
 
@@ -20,7 +20,7 @@ SkTestLab brings repeatable Skript checks into VS Code's native Test Explorer. A
 - Test discovery, cancellation, failed-test reruns and local run history.
 - Dashboard with assertion evidence, filters, sorting, comparable-selection trends and observed runtime versions.
 - JSON, HTML and JUnit reports.
-- MIT source and a small working example included. No account or telemetry required.
+- SkTestLab extension and Reward Lab example included. No account or telemetry required.
 
 ## Requirements and supported versions
 
@@ -30,7 +30,7 @@ The runtime targets Minecraft 1.21+ with a matching Skript release. Select **2.9
 
 ## Installation and first test
 
-Download and extract the ZIP, install its VSIX through VS Code's Extensions menu, then open the extracted Reward Lab folder. Run the offline test first. Configure Runtime for actual Paper execution. The example checks seven reward scenarios without addons. See `INSTALL.md` for full instructions.
+Download and extract the ZIP, install its VSIX through VS Code's Extensions menu, then open the extracted Reward Lab folder. Run the offline test first. Configure Runtime for actual Paper execution. The example checks seven reward scenarios without addons. See the example README for instructions.
 
 ## Limits
 
@@ -40,9 +40,9 @@ Offline checks are structural heuristics, not a complete Skript parser. Runtime 
 
 Source: https://github.com/Alexpetkanov13/SkTestLab
 
-Download ZIP: https://github.com/Alexpetkanov13/SkTestLab/releases/download/v1.0.1/sktestlab-1.0.1-download.zip
+Upload file: `release/1.0.0/sktestlab-1.0.0-skunity.zip` (extension and example only).
 
-Release notes: https://github.com/Alexpetkanov13/SkTestLab/releases/tag/v1.0.1
+Release notes: https://github.com/Alexpetkanov13/SkTestLab/releases/tag/v1.0.0
 
 Support and feedback: https://github.com/Alexpetkanov13/SkTestLab/issues
 

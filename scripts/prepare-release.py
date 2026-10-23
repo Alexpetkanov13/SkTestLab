@@ -66,8 +66,21 @@ def main():
             if hashlib.sha256(archive.read(name)).hexdigest() != digest:
                 raise ValueError("Delivered checksum mismatch: " + name)
     (output / "SHA256SUMS.txt").write_text(checksums + hashlib.sha256(target.read_bytes()).hexdigest() + "  " + target.name + "\n", encoding="utf-8")
+    resource = output / f"sktestlab-{version}-skunity.zip"
+    resource_contents = {vsix.name: vsix.read_bytes(), example.name: example.read_bytes()}
+    with zipfile.ZipFile(resource, "w", zipfile.ZIP_DEFLATED) as archive:
+        for name, data in sorted(resource_contents.items()):
+            archive.writestr(name, data)
+    with zipfile.ZipFile(resource) as archive:
+        if archive.testzip() is not None or set(archive.namelist()) != set(resource_contents):
+            raise ValueError("Invalid skUnity resource ZIP")
+        for name, data in resource_contents.items():
+            if archive.read(name) != data:
+                raise ValueError("skUnity resource content mismatch: " + name)
+    with (output / "SHA256SUMS.txt").open("a", encoding="utf-8") as manifest:
+        manifest.write(hashlib.sha256(resource.read_bytes()).hexdigest() + "  " + resource.name + "\n")
     kit = output / f"sktestlab-{version}-skunity-kit.zip"
-    kit_contents = {target.name: target.read_bytes()}
+    kit_contents = {resource.name: resource.read_bytes()}
     for name, origin in [("PUBLISH.md", "docs/skunity-upload.md"), ("SKUNITY-LISTING.md", "docs/skunity-listing.md"), ("SKUNITY-DESCRIPTION.bbcode", "docs/skunity-description.bbcode"), ("icon.png", package["icon"]), ("dashboard-dark.png", "docs/images/dashboard-dark.png"), ("dashboard-white.png", "docs/images/dashboard-white.png")]:
         kit_contents[name] = (ROOT / origin).read_bytes()
     kit_checksums = "".join(hashlib.sha256(data).hexdigest() + "  " + name + "\n" for name, data in sorted(kit_contents.items()))
@@ -85,6 +98,7 @@ def main():
     with (output / "SHA256SUMS.txt").open("a", encoding="utf-8") as manifest:
         manifest.write(hashlib.sha256(kit.read_bytes()).hexdigest() + "  " + kit.name + "\n")
     print(f"Prepared and verified {target}")
+    print(f"skUnity upload: {resource}")
     print(f"Publishing kit: {kit}")
     print("Local bundle only. Publication and skUnity submission are separate actions; verify final release evidence first.")
 

@@ -26,7 +26,7 @@ Check a change, inspect a failure, rerun a test, and keep the evidence behind yo
 3. Run its offline test, then open **SkTestLab: Open Dashboard**.
 4. For real server testing, use **SkTestLab: Configure Runtime**, select your local files, and run the included reward test with seven assertions.
 
-The download includes source, a working example, installation and testing guides, the MIT license, and checksums.
+The download contains the SkTestLab extension and the Reward Lab example.
 
 ## Requirements
 
@@ -34,10 +34,10 @@ The download includes source, a working example, installation and testing guides
 
 Offline checks need neither Minecraft nor Java. Runtime tests need a trusted workspace, suitable Java, your own compatible Paper/Skript JARs, and your acceptance of the Minecraft EULA. Server/plugin JARs are obtained separately.
 
-Minecraft **1.21+** is the compatibility target with a matching Skript release. **Verified Skript minor lines: 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16 and 2.17.** Exact tested releases are 2.9.0, 2.10.0, 2.11.0, 2.12.0, 2.13.0, 2.14.0, 2.15.0, 2.16.0, 2.17.0 and 2.17.1. Each passed seven real reward-function assertions using compatible Paper 1.21, 1.21.4 or 1.21.11 and Java 21.0.12. See the [exact pairing table](https://github.com/Alexpetkanov13/SkTestLab/blob/v1.0.1/docs/compatibility.md). This is not a promise that every Skript patch works on every Minecraft patch. Other combinations and addons need local verification. Other operating systems and Windows ARM64 are not certified.
+Minecraft **1.21+** is the compatibility target with a matching Skript release. **Verified Skript minor lines: 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16 and 2.17.** Exact tested releases are 2.9.0, 2.10.0, 2.11.0, 2.12.0, 2.13.0, 2.14.0, 2.15.0, 2.16.0, 2.17.0 and 2.17.1. Each passed seven real reward-function assertions using compatible Paper 1.21, 1.21.4 or 1.21.11 and Java 21.0.12. See the [exact pairing table](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md). This is not a promise that every Skript patch works on every Minecraft patch. Other combinations and addons need local verification. Other operating systems and Windows ARM64 are not certified.
 
 ## Know what your results mean
 
 Offline analysis uses structural heuristics. Runtime tests use console context and exported functions. Automated players, arbitrary event simulation, debugging, and coverage are outside this release. Disposable environments keep production worlds separate; scripts and JARs still run with your OS permissions. Skipped, cancelled, and errored tests never count as passed.
 
-[Download 1.0.1](https://github.com/Alexpetkanov13/SkTestLab/releases/tag/v1.0.1) · [Source code](https://github.com/Alexpetkanov13/SkTestLab) · [Support and issues](https://github.com/Alexpetkanov13/SkTestLab/issues)
+[GitHub project](https://github.com/Alexpetkanov13/SkTestLab) · [Support and issues](https://github.com/Alexpetkanov13/SkTestLab/issues)

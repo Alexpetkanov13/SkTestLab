@@ -1,12 +1,10 @@
 # Changelog
 
-## 1.0.1 — 2026-10-23
+## 1.0.0 — 2026-10-23
 
 - Expanded real-server compatibility verification across Skript 2.9–2.17 minor lines using compatible Paper versions; see docs/compatibility.md for exact pairings and evidence.
 - Added optional expected runtime versions and per-variant logs to the matrix runner, with assertion evidence checks.
 - Included the new emerald flask/code/checkmark icon and refreshed skUnity description.
-
-## 1.0.0 — 2026-10-23
 
 - Initial scoped Windows x64 release under MIT, with source and a portable Reward Lab example.
 - Native VS Code diagnostics and Quick Fixes, Test Explorer, offline assertions and isolated Paper/Skript runtime tests.

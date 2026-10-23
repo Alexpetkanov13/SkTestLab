@@ -2,7 +2,7 @@
 
 The initial supported desktop platform is **Windows x64**. Release VSIX files target `win32-x64`. The exact pairings below are verified combinations; accepting other versions does not certify them. Linux, macOS, Windows ARM64 and 26.x runtime combinations remain unverified for release support.
 
-SkTestLab 1.0.1 targets Paper for Minecraft **1.21 and newer**, including year-based releases such as 26.x. It accepts user-selected Skript JARs without restricting a release number. The selected Skript release and addons must themselves support the selected Paper version. Future releases remain subject to upstream behavior and local verification.
+SkTestLab 1.0.0 targets Paper for Minecraft **1.21 and newer**, including year-based releases such as 26.x. It accepts user-selected Skript JARs without restricting a release number. The selected Skript release and addons must themselves support the selected Paper version. Future releases remain subject to upstream behavior and local verification.
 
 There is no universal Minecraft/Skript pairing. [Skript 2.9.0](https://github.com/SkriptLang/Skript/releases/tag/2.9.0) introduced Minecraft 1.21 support. [Skript 2.14.0](https://github.com/SkriptLang/Skript/releases/tag/2.14.0) lists 1.21.0–1.21.11. Newer Skript releases can drop older Minecraft patches; check each release's [official support range](https://github.com/SkriptLang/Skript/releases). Use the Java version required by [your Paper release](https://docs.papermc.io/paper/getting-started/); Java 21 is the minimum baseline, not a promise that every newer server runs on Java 21.
 

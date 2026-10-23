@@ -11,7 +11,7 @@ The initial release supports **Windows x64** with VS Code 1.96+. The VSIX declar
 5. To execute the reward function, use **SkTestLab: Configure Runtime** in a trusted workspace. Select compatible local Paper and Skript JARs and the Java executable required by that Paper version. Read and accept Minecraft's EULA yourself. No server/plugin JARs or preaccepted EULA are included.
 6. Run **Reward calculation handles bonuses, limits and invalid input**. Cold server startup can take several minutes. Open **SkTestLab: Open Dashboard** for results and version evidence.
 
-Use the dashboard's **Theme** menu for **White**, **Dark**, or **Follow VS Code**. Your dashboard choice is remembered in the current VS Code profile. The editor theme stays unchanged. The included BETA-TESTING.md provides a walkthrough and feedback checklist for independent testers.
+Use the dashboard's **Theme** menu for **White**, **Dark**, or **Follow VS Code**. Your dashboard choice is remembered in the current VS Code profile. The editor theme stays unchanged. The included TESTING-GUIDE.md provides an optional walkthrough and feedback checklist.
 
 Minecraft 1.21+ is the runtime baseline. Each Skript release must support your exact Paper version; addons have their own compatibility requirements. Offline success checks source expectations only. Runtime results require a real server. See the included source documentation for the tested matrix and limitations.
 

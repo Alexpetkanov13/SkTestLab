@@ -1,4 +1,4 @@
-# skUnity listing draft — review before submission
+# skUnity listing — 1.0.0
 
 Category: **Skript Tools**
 
@@ -6,7 +6,7 @@ Title: **SkTestLab — Skript Testing & Diagnostics for VS Code**
 
 Tagline: **Check your scripts, run real Paper tests, and inspect the evidence in VS Code.**
 
-Version: use the exact included VSIX version. Current build is **0.5.0 preview**, not 1.0.0.
+Version: use the exact included VSIX version. Current release is **1.0.0**.
 
 Price/license: **Free · MIT open source**
 
@@ -40,10 +40,12 @@ Offline checks are structural heuristics, not a complete Skript parser. Runtime 
 
 Source: https://github.com/Alexpetkanov13/SkTestLab
 
-Downloads: https://github.com/Alexpetkanov13/SkTestLab/releases
+Download ZIP: https://github.com/Alexpetkanov13/SkTestLab/releases/download/v1.0.0/sktestlab-1.0.0-download.zip
 
-Support and beta feedback: https://github.com/Alexpetkanov13/SkTestLab/issues
+Release notes: https://github.com/Alexpetkanov13/SkTestLab/releases/tag/v1.0.0
 
-Before submission, verify that the intended release asset is actually published and downloads without an account, ad delays or surveys. The releases-page link is not proof that an asset exists. Upload the provided icon and screenshots through the resource editor and preview the listing. No third-party server/plugin JARs are redistributed. This is still a preview candidate; independent beta feedback and final 1.0 acceptance remain pending.
+Support and feedback: https://github.com/Alexpetkanov13/SkTestLab/issues
+
+Before submission, verify that the intended release asset is actually published and downloads without an account, ad delays or surveys. The releases-page link is not proof that an asset exists. Upload the provided icon and screenshots through the resource editor and preview the listing. No third-party server/plugin JARs are redistributed. Use SKUNITY-DESCRIPTION.bbcode for a copy-ready resource description. The owner previews and submits the post; staff approval is separate.
 
 Official submission references, reviewed 2026-10-23: [About Resources](https://docs.skunity.com/guides/guide/about-resources.21), [How to Submit](https://docs.skunity.com/guides/guide/how-to-submit-resources.22), [Resource Standards](https://docs.skunity.com/guides/guide/resource-standards.23). Staff review is required; this draft does not imply approval.

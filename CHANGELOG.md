@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0 — 2026-10-23
+
+- Initial scoped Windows x64 release under MIT, with source and a portable Reward Lab example.
+- Native VS Code diagnostics and Quick Fixes, Test Explorer, offline assertions and isolated Paper/Skript runtime tests.
+- Saved run history, reruns, runtime recovery, JSON/HTML/JUnit exports, and a White/Dark/Follow VS Code dashboard with assertion and version evidence.
+- Minecraft 1.21+ is the compatibility target with a matching Skript release; only recorded matrix pairings are advertised as verified. Other platforms, arbitrary addon support, player simulation, debugger and coverage are outside this release.
+- Fixed first-use report export opening an unrelated previous folder: create the configured report directory before showing Save As.
+- Added a release-audit check for dependency lock metadata that disagrees with its registry tarball version.
+- Final checks are recorded in docs/verification.md.
+
 ## 0.5.0 — 2026-10-23
 
 - Redesigned the dashboard with a measured run snapshot, results before analytics, clearer runtime readiness, and more readable result controls.

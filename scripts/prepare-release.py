@@ -49,7 +49,7 @@ def main():
         archive.write(ROOT / "LICENSE.txt", "reward-lab/LICENSE.txt")
 
     contents = {vsix.name: vsix.read_bytes(), source.name: source.read_bytes(), example.name: example.read_bytes()}
-    for target, origin in [("LICENSE.txt", "LICENSE.txt"), ("INSTALL.md", "docs/install.md"), ("SKUNITY-LISTING.md", "docs/skunity-listing.md"), ("RELEASE-CHECKLIST.md", "docs/release-1.0.md"), ("BETA-TESTING.md", "docs/beta-testing.md")]:
+    for target, origin in [("LICENSE.txt", "LICENSE.txt"), ("INSTALL.md", "docs/install.md"), ("SKUNITY-LISTING.md", "docs/skunity-listing.md"), ("RELEASE-CHECKLIST.md", "docs/release-1.0.md"), ("TESTING-GUIDE.md", "docs/testing-guide.md"), ("SKUNITY-DESCRIPTION.bbcode", "docs/skunity-description.bbcode")]:
         contents[target] = (ROOT / origin).read_bytes()
     checksums = "".join(hashlib.sha256(data).hexdigest() + "  " + name + "\n" for name, data in sorted(contents.items()))
     contents["SHA256SUMS.txt"] = checksums.encode()
@@ -66,8 +66,27 @@ def main():
             if hashlib.sha256(archive.read(name)).hexdigest() != digest:
                 raise ValueError("Delivered checksum mismatch: " + name)
     (output / "SHA256SUMS.txt").write_text(checksums + hashlib.sha256(target.read_bytes()).hexdigest() + "  " + target.name + "\n", encoding="utf-8")
+    kit = output / f"sktestlab-{version}-skunity-kit.zip"
+    kit_contents = {target.name: target.read_bytes()}
+    for name, origin in [("PUBLISH.md", "docs/skunity-upload.md"), ("SKUNITY-LISTING.md", "docs/skunity-listing.md"), ("SKUNITY-DESCRIPTION.bbcode", "docs/skunity-description.bbcode"), ("icon.png", "assets/icon.png"), ("dashboard-dark.png", "docs/images/dashboard-dark.png"), ("dashboard-white.png", "docs/images/dashboard-white.png")]:
+        kit_contents[name] = (ROOT / origin).read_bytes()
+    kit_checksums = "".join(hashlib.sha256(data).hexdigest() + "  " + name + "\n" for name, data in sorted(kit_contents.items()))
+    kit_contents["SHA256SUMS.txt"] = kit_checksums.encode()
+    with zipfile.ZipFile(kit, "w", zipfile.ZIP_DEFLATED) as archive:
+        for name, data in sorted(kit_contents.items()):
+            archive.writestr(name, data)
+    with zipfile.ZipFile(kit) as archive:
+        if archive.testzip() is not None:
+            raise ValueError("Publishing kit ZIP is corrupt")
+        for line in kit_checksums.splitlines():
+            digest, name = line.split("  ", 1)
+            if hashlib.sha256(archive.read(name)).hexdigest() != digest:
+                raise ValueError("Publishing kit checksum mismatch: " + name)
+    with (output / "SHA256SUMS.txt").open("a", encoding="utf-8") as manifest:
+        manifest.write(hashlib.sha256(kit.read_bytes()).hexdigest() + "  " + kit.name + "\n")
     print(f"Prepared and verified {target}")
-    print("Local preview bundle only. Complete docs/release-1.0.md before publishing 1.0.0.")
+    print(f"Publishing kit: {kit}")
+    print("Local bundle only. Publication and skUnity submission are separate actions; verify final release evidence first.")
 
 
 if __name__ == "__main__":

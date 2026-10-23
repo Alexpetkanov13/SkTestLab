@@ -20,7 +20,7 @@ The release ZIP includes source, the VSIX, a portable example, checksums and bet
 2. Wait for the Quality workflow. Packaging runs on Windows and checks the installable Windows x64 candidate; real Minecraft workflows need an explicitly provisioned runner and accepted EULA.
 3. Publish a clearly labeled candidate GitHub Release only after reviewing the source and build results. Attach the matching download ZIP and SHA256SUMS.txt, plus the VSIX if desired. Do not bundle Paper, Skript or addon JARs.
 4. Verify the exact release asset downloads anonymously and its hash matches. A releases-page URL alone does not prove an artifact has been uploaded.
-5. Share the beta checklist through an owner-selected channel, collect actual reports and update beta-status.md. No automated outreach is included.
+5. Independent beta feedback was waived by the owner on 2026-10-23. Optional reports remain welcome; do not invent external acceptance. No automated outreach is included.
 6. Complete the final 1.0 checklist before changing the release/listing to 1.0.0 or submitting on skUnity.
 
-The skUnity draft contains real source/support/releases links. It must retain its preview label until the final gates are complete. Publishing source, attaching a GitHub Release and submitting on skUnity are separate actions; verify each result explicitly.
+The skUnity listing contains real source/support/download links. The 1.0.0 checklist records the owner-waived feedback requirement and final acceptance evidence. Publishing source, attaching a GitHub Release and submitting on skUnity are separate actions; verify each result explicitly.

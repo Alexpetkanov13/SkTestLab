@@ -1,6 +1,6 @@
 # Limitations and roadmap
 
-0.3.0 includes offline analysis/testing, an interactive dashboard, explicit runtime recovery and isolated execution verified on three Paper/Skript combinations. It does not complete every requirement in the master product specification. The scoped initial release gates are tracked in [the 1.0 checklist](release-1.0.md).
+1.0.0 includes offline analysis/testing, an interactive dashboard, explicit runtime recovery and isolated execution verified on three Paper/Skript combinations. It does not complete every requirement in the master product specification. The scoped initial release gates are tracked in [the 1.0 checklist](release-1.0.md).
 
 ## Runtime promotion gates
 

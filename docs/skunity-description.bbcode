@@ -1,0 +1,39 @@
+[b][size=6]SkTestLab — Skript Testing & Diagnostics for VS Code[/size][/b]
+
+Write Skript, check it in Test Explorer, and inspect the evidence behind every result.
+
+[b]Free · MIT open source · Version 1.0.0 · Windows x64[/b]
+
+[b][size=5]Features[/size][/b]
+[list]
+[*]Source diagnostics and targeted Quick Fixes.
+[*]Offline tests for diagnostics, symbols, source and structure.
+[*]Real runtime assertions using your own Paper and Skript JARs in a disposable environment.
+[*]Native Test Explorer, cancellation, rerun failed tests and saved run history.
+[*]White, Dark and Follow VS Code dashboard themes, assertion details, filters, sorting and comparable-run trends.
+[*]JSON, HTML and JUnit report exports.
+[*]Portable Reward Lab example with seven runtime assertions. No account or telemetry required.
+[/list]
+
+[b][size=5]Requirements[/size][/b]
+Windows x64 and VS Code 1.96+. Offline tests require no Minecraft server or Java.
+
+Runtime tests require a trusted workspace, a suitable Java version, your own compatible Paper/Skript JARs and your acceptance of the Minecraft EULA. No server/plugin JARs or preaccepted EULA settings are distributed.
+
+Minecraft 1.21+ is the compatibility target with a matching Skript release. Verified pairings are Paper 1.21 build 130 / Skript 2.9.0 and Paper 1.21.11 build 132 / Skript 2.14.0 or 2.16.0, using Java 21.0.12. Other pairings and addons need local verification. Linux, macOS and Windows ARM64 are not certified.
+
+[b][size=5]First test[/size][/b]
+[list=1]
+[*]Extract the download ZIP and install its VSIX through Extensions → … → Install from VSIX. This is an editor extension, not a Minecraft plugin.
+[*]Extract reward-lab.zip and open its reward-lab folder in VS Code.
+[*]Run the offline test in Testing. Use SkTestLab: Open Dashboard to inspect the result.
+[*]Use SkTestLab: Configure Runtime for actual Paper execution, then run the reward runtime test.
+[/list]
+The included INSTALL.md and TESTING-GUIDE.md provide the full walkthrough.
+
+[b][size=5]Scope[/size][/b]
+Offline analysis uses structural heuristics rather than a complete Skript parser. Runtime tests use console context and exported functions. Automated players, arbitrary event simulation, debugging and coverage are outside this release. Temporary environments prevent accidental production-world reuse; they are not an OS security sandbox. Skipped, errored and cancelled tests do not count as passed.
+
+[b]Source:[/b] [url=https://github.com/Alexpetkanov13/SkTestLab]GitHub repository[/url]
+[b]Support:[/b] [url=https://github.com/Alexpetkanov13/SkTestLab/issues]GitHub Issues[/url]
+[b]License:[/b] MIT. Source, license and checksums are included in the download.

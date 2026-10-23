@@ -5,6 +5,7 @@ import unittest
 from pathlib import Path
 import zipfile
 import importlib.util
+import json
 spec = importlib.util.spec_from_file_location("release_audit", Path(__file__).with_name("audit-release.py"))
 module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
@@ -29,6 +30,18 @@ class AuditTests(unittest.TestCase):
     def test_hash_mismatch(self):
         result = audit(self.bundle({"README.md": b"content"}, True))
         self.assertIn("checksum_mismatch", [f["kind"] for f in result["findings"]])
+
+    def test_valid_lockfile(self):
+        lock = {"version": "1.0.0", "packages": {"": {"version": "1.0.0"}, "node_modules/example": {"version": "0.4.1", "resolved": "https://registry.npmjs.org/example/-/example-0.4.1.tgz"}}}
+        self.assertTrue(audit(self.bundle({"package-lock.json": json.dumps(lock).encode()}))["passed"])
+
+    def test_dependency_version_bump_in_lockfile(self):
+        lock = {"version": "1.0.0", "packages": {"": {"version": "1.0.0"}, "node_modules/example": {"version": "1.0.0", "resolved": "https://registry.npmjs.org/example/-/example-0.4.1.tgz"}}}
+        result = audit(self.bundle({"package-lock.json": json.dumps(lock).encode()}))
+        self.assertIn("inconsistent_lockfile_versions", [f["kind"] for f in result["findings"]])
+
+    def test_root_version_mismatch_in_lockfile(self):
+        self.assertFalse(module.lockfile_valid(b'{"version":"1.0.0","packages":{"":{"version":"0.5.0"}}}'))
 
     def test_token_report_does_not_repeat_token(self):
         token = b"ghp_" + b"a" * 40

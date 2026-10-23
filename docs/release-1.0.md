@@ -1,6 +1,6 @@
 # SkTestLab 1.0.0 acceptance checklist
 
-Current candidate: **0.5.0**. This is a free MIT VS Code testing tool for the skUnity Skript Tools category. A Marketplace listing is optional for distributing a VSIX on skUnity.
+Release: **1.0.0**. This is a free MIT VS Code testing tool for the skUnity Skript Tools category. A Marketplace listing is optional for distributing a VSIX on skUnity.
 
 ## Completed
 
@@ -22,10 +22,10 @@ Current candidate: **0.5.0**. This is a free MIT VS Code testing tool for the sk
 - [x] **Freeze the supported scope.** Windows x64 is the initial supported platform, declared in the VSIX and listing. Other operating systems and architectures remain uncertified.
 - [x] **Windows runtime recovery milestone.** Repeated action cancellation, action timeout and abrupt owner-process termination were exercised on disposable Paper environments. Explicit recovery protects live/uncertain processes; ownership/path checks and unconfirmed shutdown preservation are covered by automated tests. Cross-platform behavior remains part of the platform gate.
 - [x] **Close the version claim.** Only the three recorded Paper/Skript pairings are advertised as tested. Other 1.21 patches and 26.x are accepted targets requiring local verification, not certified combinations. No universal addon compatibility is claimed.
-- [ ] **Fresh-user acceptance.** Install the final VSIX from the final ZIP in a clean profile, follow INSTALL.md without developer setup, run the portable example offline and on Paper, inspect/export failures, update from 0.2.x and uninstall. Include light/dark/high-contrast, narrow view and keyboard checks on claimed platforms.
-- [ ] **Gather independent beta feedback.** Have external Skript users follow the guide and record/fix blocking problems. Do not count internal synthetic checks as outside feedback.
-- [ ] **Provide public source/download and support.** Choose the real repository or other public source host and a monitored support route. Publish MIT source corresponding exactly to the downloadable VSIX. Configure issue/security contact links with actual owner-approved destinations.
-- [ ] **Final release evidence.** Bump to 1.0.0 after these gates; rerun type/lint/format/unit, editor/minimum/trust tests, matrix and process cleanup tests on final sources. Package/install that exact VSIX, verify ZIP/checksums, archive results, and write the release notes.
+- [x] **Windows acceptance.** Installed 1.0.0 candidate from its ZIP; portable offline/Paper checks, seven reward assertions, deliberate failure/JUnit export, 0.2.1 upgrade/history preservation, uninstall and project hashes passed. Current/minimum/Restricted editors and four native theme switches passed. Isolated native setup pickers/Java/EULA cancellation and JSON Save As were exercised; the first-use report directory fix was reinstalled and verified.
+- [x] **Independent beta feedback waived by the owner on 2026-10-23.** External reports remain optional; none are claimed. Final automated and local UI acceptance still apply.
+- [x] **Public source/download and support established.** MIT source, GitHub Issues and an anonymously verified 0.5.0 download are live at Alexpetkanov13/SkTestLab. Publish and verify the exact final 1.0.0 artifacts separately.
+- [x] **1.0.0 code acceptance.** Version set to 1.0.0; type/lint/format, 159 unit checks, seven native checks, minimum/trust checks, five real runtime scenarios, three-pairing matrix and interruption/recovery checks passed. Final archive/source reproducibility, exact download hash and publication results are recorded in the GitHub release evidence after freezing documentation.
 - [ ] **skUnity submission review.** Replace draft download/support text, use exact version/support claims, upload owned icon/screenshots, verify anonymous download access and preview the post. The owner submits; staff approval is separate from completing 1.0.0.
 
 ## Good later features, not mandatory for this scoped 1.0
@@ -53,4 +53,4 @@ npm run test:reliability
 npm run release:prepare
 ```
 
-The download ZIP includes VSIX, source ZIP, portable Reward Lab ZIP, MIT license, installation guide, listing draft, this checklist and SHA-256 checksums. Preparing it never uploads or publishes anything.
+The download ZIP includes VSIX, source ZIP, portable Reward Lab ZIP, MIT license, installation/testing guides, listing/BBCode, this checklist and SHA-256 checksums. Preparing it never uploads or publishes anything.

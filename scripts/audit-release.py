@@ -17,6 +17,23 @@ PATTERNS = {
 BLOCKED = {".git", ".vscode", ".vscode-test", "node_modules", "coverage", "__pycache__"}
 
 
+def lockfile_valid(content):
+    """Registry tarball versions must agree with their locked metadata."""
+    try:
+        lock = json.loads(content)
+        packages = lock["packages"]
+        if lock["version"] != packages[""]["version"]:
+            return False
+        for package in packages.values():
+            resolved = package.get("resolved", "")
+            match = re.search(r"/-/[^/]+-(\d+\.\d+\.\d+(?:[-+][\w.-]+)?)\.tgz$", resolved)
+            if resolved.startswith("https://registry.npmjs.org/") and match and package.get("version") != match[1]:
+                return False
+        return True
+    except (KeyError, TypeError, ValueError, AttributeError):
+        return False
+
+
 def audit(bundle):
     findings = []
     count = 0
@@ -43,6 +60,8 @@ def audit(bundle):
                 if re.search(r"(?:^|/)(?:\.env(?:\.[^/]*)?|id_rsa|id_ed25519)$", name, re.I) or name.lower().endswith((".pem", ".pfx", ".p12", ".jar")):
                     findings.append({"file": full, "kind": "private_or_server_artifact"})
                 content = archive.read(entry)
+                if parts[-1] == "package-lock.json" and not lockfile_valid(content):
+                    findings.append({"file": full, "kind": "inconsistent_lockfile_versions"})
                 if name.endswith((".zip", ".vsix")):
                     scan(content, full, depth + 1)
                 else:

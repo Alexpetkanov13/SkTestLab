@@ -236,6 +236,8 @@ export async function activate(context: vscode.ExtensionContext) {
       root.uri.fsPath,
       config(root.uri).get("reports.outputDirectory", ".sktestlab/reports"),
     );
+    // Native Save As dialogs can ignore a default URI whose parent is missing.
+    await vscode.workspace.fs.createDirectory(vscode.Uri.file(directory));
     const uri = await vscode.window.showSaveDialog({
       defaultUri: vscode.Uri.file(
         path.join(directory, "sktestlab-" + record.id + "." + extension),

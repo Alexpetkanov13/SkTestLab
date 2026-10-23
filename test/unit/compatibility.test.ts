@@ -25,23 +25,34 @@ it("does not invent support for unknown version formats", () => {
     compatibilityNotes({ minecraft: "unknown", skript: "2.17.0" }).join(),
   ).toContain("unverified");
 });
-it.each(["2.9.0", "2.10.2", "2.14.0", "2.16.0", "2.17.0-pre1", "3.0.0"])(
-  "observes Skript %s from startup rather than filenames",
-  (version) => {
-    const versions: RuntimeVersions = {};
-    observeVersions(
-      "[Skript] Loading server plugin Skript v" + version,
-      versions,
-    );
-    observeVersions("Starting minecraft server version 1.21.11", versions);
-    observeVersions("[bootstrap] Running Java 21 (Oracle)", versions);
-    expect(versions).toEqual({
-      minecraft: "1.21.11",
-      skript: version,
-      java: "21",
-    });
-  },
-);
+it.each([
+  "2.9.0",
+  "2.10.0",
+  "2.10.2",
+  "2.11.0",
+  "2.12.0",
+  "2.13.0",
+  "2.14.0",
+  "2.15.0",
+  "2.16.0",
+  "2.17.0",
+  "2.17.1",
+  "2.17.0-pre1",
+  "3.0.0",
+])("observes Skript %s from startup rather than filenames", (version) => {
+  const versions: RuntimeVersions = {};
+  observeVersions(
+    "[Skript] Loading server plugin Skript v" + version,
+    versions,
+  );
+  observeVersions("Starting minecraft server version 1.21.11", versions);
+  observeVersions("[bootstrap] Running Java 21 (Oracle)", versions);
+  expect(versions).toEqual({
+    minecraft: "1.21.11",
+    skript: version,
+    java: "21",
+  });
+});
 it("reads older Skript enabling messages and flags prereleases", () => {
   const versions: RuntimeVersions = {};
   observeVersions("[Skript] Enabling Skript v2.9.0-beta1", versions);

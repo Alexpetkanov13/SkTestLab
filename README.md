@@ -10,7 +10,7 @@ Initial supported platform: **Windows x64**, VS Code 1.96+. The release VSIX tar
 
 Dashboard **Theme** menu: choose **White**, **Dark**, or **Follow VS Code**. Your choice is remembered locally without changing the editor theme.
 
-## Available in 1.0.0
+## Available in 1.0.1
 
 - Source-preserving analysis with 12 configurable diagnostic rules, confidence labels, two Quick Fixes and cross-file declaration warnings.
 - Versioned `.sktest.json` definitions, JSON Schema and snippets.
@@ -20,7 +20,7 @@ Dashboard **Theme** menu: choose **White**, **Dark**, or **Follow VS Code**. You
 - An interactive mint-accented dashboard with comparable run trends, slowest-test insights, mode filters, sorting and complete assertion evidence: live progress, searchable/filterable results, assertion details, source links, workspace-scoped history, runtime setup checklist and direct testing actions.
 - SkTestLab activity-bar view, offline-only runs, live status bar, declaration-based templates, CodeLens, regression comparison, JSON/HTML/JUnit reports and offline CLI.
 
-**Status: 1.0.0 · Windows x64.** Real Paper 1.21.11-132 / Skript 2.16.0 / Java 21.0.12 tests verify passing/failing assertions, parse errors, warning-only scripts and startup cancellation. ChickFarm project checks exposed and fixed static false positives and multiline runtime error handling. Paper Minecraft 1.21+ and upstream-compatible Skript releases are accepted without a version whitelist. Observed versions are retained with results. See the [compatibility policy and version-matrix runner](docs/compatibility.md); acceptance does not certify every combination. See [verification](docs/verification.md), [ChickFarm results](docs/chickfarm-verification.md) and [limitations](docs/roadmap.md).
+**Status: 1.0.1 · Windows x64.** Real Paper 1.21.11-132 / Skript 2.16.0 / Java 21.0.12 tests verify passing/failing assertions, parse errors, warning-only scripts and startup cancellation. ChickFarm project checks exposed and fixed static false positives and multiline runtime error handling. Paper Minecraft 1.21+ and upstream-compatible Skript releases are accepted without a version whitelist. Observed versions are retained with results. Verified runtime coverage spans Skript minor lines **2.9–2.17** on compatible Paper versions (including 2.17.1). See the [exact compatibility matrix](docs/compatibility.md); this does not certify every patch or addon. See [verification](docs/verification.md), [ChickFarm results](docs/chickfarm-verification.md) and [limitations](docs/roadmap.md).
 
 ![SkTestLab dark dashboard displaying recorded Reward Lab runtime results](docs/images/dashboard-dark.png)
 
@@ -34,7 +34,7 @@ Dashboard **Theme** menu: choose **White**, **Dark**, or **Follow VS Code**. You
 4. Open Testing (beaker) and run. Use **SkTestLab: Open Dashboard** for saved results.
 
 ```powershell
-code --install-extension ./sktestlab-win32-x64-1.0.0.vsix
+code --install-extension ./sktestlab-win32-x64-1.0.1.vsix
 ```
 
 Minimal offline test; paths are relative to the owning workspace folder:

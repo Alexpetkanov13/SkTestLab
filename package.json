@@ -2,7 +2,7 @@
   "name": "sktestlab",
   "displayName": "SkTestLab — Skript Testing & Diagnostics",
   "description": "Write. Test. Debug. Perfect. Skript diagnostics and native offline and isolated Paper testing.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "dheaven",
   "author": "DHeaven",
   "license": "MIT",
@@ -389,7 +389,7 @@
   "overrides": {
     "mocha": "$mocha"
   },
-  "icon": "assets/icon.png",
+  "icon": "assets/icon-v2-256.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/Alexpetkanov13/SkTestLab.git"

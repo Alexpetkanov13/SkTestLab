@@ -68,7 +68,7 @@ def main():
     (output / "SHA256SUMS.txt").write_text(checksums + hashlib.sha256(target.read_bytes()).hexdigest() + "  " + target.name + "\n", encoding="utf-8")
     kit = output / f"sktestlab-{version}-skunity-kit.zip"
     kit_contents = {target.name: target.read_bytes()}
-    for name, origin in [("PUBLISH.md", "docs/skunity-upload.md"), ("SKUNITY-LISTING.md", "docs/skunity-listing.md"), ("SKUNITY-DESCRIPTION.bbcode", "docs/skunity-description.bbcode"), ("icon.png", "assets/icon.png"), ("dashboard-dark.png", "docs/images/dashboard-dark.png"), ("dashboard-white.png", "docs/images/dashboard-white.png")]:
+    for name, origin in [("PUBLISH.md", "docs/skunity-upload.md"), ("SKUNITY-LISTING.md", "docs/skunity-listing.md"), ("SKUNITY-DESCRIPTION.bbcode", "docs/skunity-description.bbcode"), ("icon.png", package["icon"]), ("dashboard-dark.png", "docs/images/dashboard-dark.png"), ("dashboard-white.png", "docs/images/dashboard-white.png")]:
         kit_contents[name] = (ROOT / origin).read_bytes()
     kit_checksums = "".join(hashlib.sha256(data).hexdigest() + "  " + name + "\n" for name, data in sorted(kit_contents.items()))
     kit_contents["SHA256SUMS.txt"] = kit_checksums.encode()

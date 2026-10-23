@@ -18,3 +18,6 @@ tsconfig.json
 package-lock.json
 coverage/**
 release/**
+
+assets/icon-v2.png
+assets/icon-v2-128.png

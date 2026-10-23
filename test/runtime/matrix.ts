@@ -6,6 +6,8 @@ import { RuntimeConfig } from "../../src/runtime/environment";
 import { parseTest } from "../../src/testing/discovery";
 import { runTests } from "../../src/testing/runner";
 import { safeTarget, contained } from "../../src/security/paths";
+import { appendFileSync } from "node:fs";
+import { RuntimeVersions } from "../../src/runtime/compatibility";
 
 // Explicit local configurations; never fetches or substitutes server/plugin JARs.
 async function main() {
@@ -17,7 +19,11 @@ async function main() {
   const matrix = JSON.parse(await readFile(file, "utf8")) as {
     root: string;
     tests: string[];
-    variants: { name: string; config: RuntimeConfig }[];
+    variants: {
+      name: string;
+      config: RuntimeConfig;
+      expectedVersions?: RuntimeVersions;
+    }[];
   };
   if (
     !path.isAbsolute(matrix.root) ||
@@ -66,6 +72,11 @@ async function main() {
           { ...variant.config, keepEnvironment: false },
           path.join(output, "environment-" + index),
           () => true,
+          (line) =>
+            appendFileSync(
+              path.join(output, `variant-${index}.log`),
+              line + "\n",
+            ),
         ),
       ],
       {
@@ -75,7 +86,25 @@ async function main() {
           readFile(await safeTarget(matrix.root, target), "utf8"),
       },
     );
-    evidence.push({ name: variant.name, jars, record });
+    const evidenceErrors = record.results.flatMap((result) => {
+      const errors: string[] = [];
+      for (const [key, value] of Object.entries(
+        variant.expectedVersions ?? {},
+      )) {
+        if (result.runtimeVersions?.[key as keyof RuntimeVersions] !== value)
+          errors.push(`Observed ${key} did not match expected ${value}`);
+      }
+      if (
+        result.status === "passed" &&
+        (!result.assertions.length ||
+          result.assertions.some((assertion) => !assertion.passed))
+      )
+        errors.push("Passing matrix result lacks complete passing assertions");
+      return errors;
+    });
+    if (record.results.length !== selection.length)
+      evidenceErrors.push("Matrix result count did not match selected tests");
+    evidence.push({ name: variant.name, jars, record, evidenceErrors });
     await writeFile(
       path.join(output, "results.json"),
       JSON.stringify(evidence, null, 2),
@@ -83,7 +112,11 @@ async function main() {
     console.log(
       variant.name + ": " + record.results.map((r) => r.status).join(", "),
     );
-    if (record.results.some((r) => r.status !== "passed")) process.exitCode = 1;
+    if (
+      record.results.some((r) => r.status !== "passed") ||
+      evidenceErrors.length
+    )
+      process.exitCode = 1;
   }
   if (abort.signal.aborted) process.exitCode = 1;
   console.log("Matrix evidence: " + output);

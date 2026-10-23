@@ -1,10 +1,33 @@
 # Minecraft and Skript compatibility
 
-The initial supported desktop platform is **Windows x64**. Release VSIX files target `win32-x64`. The three pairings in verification.md are the tested combinations; accepting other versions does not certify them. Linux, macOS, Windows ARM64 and 26.x runtime combinations remain unverified for release support.
+The initial supported desktop platform is **Windows x64**. Release VSIX files target `win32-x64`. The exact pairings below are verified combinations; accepting other versions does not certify them. Linux, macOS, Windows ARM64 and 26.x runtime combinations remain unverified for release support.
 
-SkTestLab 0.2.0 targets Paper for Minecraft **1.21 and newer**, including year-based releases such as 26.x. It accepts user-selected Skript JARs without restricting a release number. The selected Skript release and addons must themselves support the selected Paper version. Future releases remain subject to upstream behavior and local verification.
+SkTestLab 1.0.1 targets Paper for Minecraft **1.21 and newer**, including year-based releases such as 26.x. It accepts user-selected Skript JARs without restricting a release number. The selected Skript release and addons must themselves support the selected Paper version. Future releases remain subject to upstream behavior and local verification.
 
 There is no universal Minecraft/Skript pairing. [Skript 2.9.0](https://github.com/SkriptLang/Skript/releases/tag/2.9.0) introduced Minecraft 1.21 support. [Skript 2.14.0](https://github.com/SkriptLang/Skript/releases/tag/2.14.0) lists 1.21.0–1.21.11. Newer Skript releases can drop older Minecraft patches; check each release's [official support range](https://github.com/SkriptLang/Skript/releases). Use the Java version required by [your Paper release](https://docs.papermc.io/paper/getting-started/); Java 21 is the minimum baseline, not a promise that every newer server runs on Java 21.
+
+## Verified Skript 2.9–2.17 coverage
+
+The Windows runtime harness has been exercised against one release in every minor line from **2.9 through 2.17**, plus the 2.17.1 patch. Each exact combination below passed seven assertions invoking the same real Reward Lab function. All used Java 21.0.12. The expanded checks ran on 2026-10-23.
+
+| Skript release | Paper / Minecraft | Reward assertions |
+| -------------- | ----------------- | ----------------- |
+| 2.9.0          | 1.21 build 130    | 7 / 7 passed      |
+| 2.10.0         | 1.21.4 build 232  | 7 / 7 passed      |
+| 2.11.0         | 1.21.4 build 232  | 7 / 7 passed      |
+| 2.12.0         | 1.21.4 build 232  | 7 / 7 passed      |
+| 2.13.0         | 1.21.4 build 232  | 7 / 7 passed      |
+| 2.14.0         | 1.21.11 build 132 | 7 / 7 passed      |
+| 2.15.0         | 1.21.11 build 132 | 7 / 7 passed      |
+| 2.16.0         | 1.21.11 build 132 | 7 / 7 passed      |
+| 2.17.0         | 1.21.11 build 132 | 7 / 7 passed      |
+| 2.17.1         | 1.21.11 build 132 | 7 / 7 passed      |
+
+For the skUnity minor-version checkboxes, select **2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16 and 2.17**. These labels represent the tested minor lines, not every patch or every Minecraft pairing. Skript releases below 2.9 do not meet this tool's Minecraft 1.21+ scope. Addons and other pairings require their own checks.
+
+Skript [2.10.0](https://github.com/SkriptLang/Skript/releases/tag/2.10.0) lists Minecraft 1.21.3/1.21.4 support, while [2.17.0](https://github.com/SkriptLang/Skript/releases/tag/2.17.0) and [2.17.1](https://github.com/SkriptLang/Skript/releases/tag/2.17.1) target Paper 1.21.5–26.3. Use an upstream-compatible pairing rather than putting every Skript version on one server version. The table intentionally uses different Paper patches.
+
+The 2.17.0 lifecycle suite also verified a passing test, an intentional assertion failure, a script parse error, a warning-only script and startup cancellation, with all expected outcomes and no remaining runtime environments. Machine-readable [sanitized evidence](compatibility-matrix.json) contains observed versions, JAR hashes, run IDs and assertion counts; local paths and full logs are not included. The matrix runner optionally validates expected runtime versions and writes per-variant logs.
 
 ## What is checked
 

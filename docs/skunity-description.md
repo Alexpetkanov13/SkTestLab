@@ -1,43 +1,88 @@
-# SkTestLab — Skript Testing & Diagnostics for VS Code
+[![SkTestLab logo](https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/assets/icon-v2-256.png)](https://github.com/Alexpetkanov13/SkTestLab)
+
+# SkTestLab
 
 **Write Skript. Run real tests. Ship with confidence.**
 
-Build your next Skript project with a testing workbench right inside VS Code. SkTestLab brings source diagnostics, fast offline checks, real Paper/Skript tests, and a polished results dashboard into one workflow.
+A testing workbench for Skript developers, right inside VS Code. Catch source issues, check your code offline, and run real Paper/Skript assertions. Bring your results together in a dashboard designed for everyday development.
 
-Check a change, inspect a failure, rerun a test, and keep the evidence behind your results.
+**Free · MIT open source · Local execution · No account or telemetry required**
 
-## Your script. Your tests. Your workspace.
+[![Version: 1.0.0](https://img.shields.io/static/v1?label=Version&message=1.0.0&color=10b981)](https://github.com/Alexpetkanov13/SkTestLab)
+[![VS Code: 1.96+](https://img.shields.io/static/v1?label=VS%20Code&message=1.96%2B&color=007acc)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/install.md)
+[![Platform: Windows x64](https://img.shields.io/static/v1?label=Platform&message=Windows%20x64&color=475569)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
+[![Paper: 1.21+ target](https://img.shields.io/static/v1?label=Paper&message=1.21%2B%20target&color=0284c7)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
+[![Skript: 2.9–2.17 verified](https://img.shields.io/static/v1?label=Skript&message=2.9%E2%80%932.17%20verified&color=f97316)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
+[![Java: 21 tested](https://img.shields.io/static/v1?label=Java&message=21%20tested&color=dc2626)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
+[![License: MIT](https://img.shields.io/static/v1?label=License&message=MIT&color=65a30d)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/LICENSE.txt)
 
-- **Catch source issues early.** Get configurable diagnostics and targeted Quick Fixes while you work.
-- **Start testing immediately.** Run offline checks for diagnostics, symbols, source, and structure without a Minecraft server.
-- **Exercise real Skript code.** Use your own compatible Paper and Skript JARs to run runtime assertions in a disposable server environment.
-- **Make failures easier to investigate.** Inspect assertions, source diagnostics, console excerpts, and observed runtime versions.
-- **Keep your testing flow.** Discover tests in VS Code's native Test Explorer, rerun failures, cancel runs, and revisit saved history.
-- **See the bigger picture.** Search, filter, sort, expand results, and compare runs with the same test selection.
-- **Share useful reports.** Export JSON, HTML, or JUnit results.
-- **Make it yours.** Choose White, Dark, or Follow VS Code. The dashboard remembers your choice.
+## Why SkTestLab?
 
-**Free. MIT open source. Local execution. No account or telemetry required.**
+A successful reload is a useful start. Repeatable tests help you check the behavior behind your scripts: reward calculations, boundary values, expected failures, and the functions you change most often.
 
-## Get your first green check
+Keep `.sk` files and `.sktest.json` tests together in your project. Run a check from VS Code's native Test Explorer, inspect the evidence, and rerun failures while you work.
 
-1. Extract the download ZIP and install the included VSIX using **Extensions → … → Install from VSIX**.
-2. Extract `reward-lab.zip` and open the `reward-lab` folder in VS Code.
-3. Run its offline test, then open **SkTestLab: Open Dashboard**.
-4. For real server testing, use **SkTestLab: Configure Runtime**, select your local files, and run the included reward test with seven assertions.
+## A complete testing workflow
 
-The download contains the SkTestLab extension and the Reward Lab example.
+- **Source diagnostics and Quick Fixes.** Spot configurable source issues as you edit, with targeted fixes where available.
+- **Fast offline checks.** Assert diagnostics, symbols, source text, and structure without starting Minecraft or installing Java.
+- **Real Paper/Skript execution.** Select your compatible local JARs and run assertions in disposable server environments.
+- **Evidence you can inspect.** Review individual assertions, source diagnostics, console excerpts, and observed runtime versions.
+- **Native Test Explorer.** Discover tests, run selections, rerun failures, and cancel execution from familiar VS Code controls.
+- **Saved run history.** Revisit earlier results and compare runs with the same test selection.
+- **Reports for your workflow.** Export JSON, HTML, or JUnit results for investigation and sharing.
 
-## Requirements
+## Your dashboard, your style
 
-**Windows x64 · VS Code 1.96+**
+Choose **White**, **Dark**, or **Follow VS Code**. Your appearance choice is remembered.
 
-Offline checks need neither Minecraft nor Java. Runtime tests need a trusted workspace, suitable Java, your own compatible Paper/Skript JARs, and your acceptance of the Minecraft EULA. Server/plugin JARs are obtained separately.
+Search, filter, and sort results; expand assertion details; inspect runtime readiness; and follow trends for comparable test selections. Passing, failing, skipped, cancelled, and errored outcomes stay distinct, so incomplete runs do not become a misleading green result.
 
-Minecraft **1.21+** is the compatibility target with a matching Skript release. **Verified Skript minor lines: 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16 and 2.17.** Exact tested releases are 2.9.0, 2.10.0, 2.11.0, 2.12.0, 2.13.0, 2.14.0, 2.15.0, 2.16.0, 2.17.0 and 2.17.1. Each passed seven real reward-function assertions using compatible Paper 1.21, 1.21.4 or 1.21.11 and Java 21.0.12. See the [exact pairing table](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md). This is not a promise that every Skript patch works on every Minecraft patch. Other combinations and addons need local verification. Other operating systems and Windows ARM64 are not certified.
+![SkTestLab dark dashboard](https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/docs/images/dashboard-dark.png)
 
-## Know what your results mean
+![SkTestLab white dashboard](https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/docs/images/dashboard-white.png)
 
-Offline analysis uses structural heuristics. Runtime tests use console context and exported functions. Automated players, arbitrary event simulation, debugging, and coverage are outside this release. Disposable environments keep production worlds separate; scripts and JARs still run with your OS permissions. Skipped, cancelled, and errored tests never count as passed.
+## Included example: Reward Lab
 
-[GitHub project](https://github.com/Alexpetkanov13/SkTestLab) · [Support and issues](https://github.com/Alexpetkanov13/SkTestLab/issues)
+Start with a small reward calculator written in ordinary Skript. Its tests check normal rewards, invalid inputs, rounding, and the reward cap, with **seven real runtime assertions** and an offline source check.
+
+**No addons or automated players are needed for the example.**
+
+The download contains **the SkTestLab extension and the Reward Lab example**.
+
+## Installation
+
+1. Extract the download ZIP.
+2. In VS Code, open **Extensions → … → Install from VSIX** and select the included extension.
+3. Extract `reward-lab.zip` and open its `reward-lab` folder in VS Code.
+4. Run the example's offline test from Test Explorer, then use **SkTestLab: Open Dashboard** to inspect the result.
+5. For real server tests, run **SkTestLab: Configure Runtime**, select your local Java and compatible Paper/Skript JARs, accept the Minecraft EULA, and run the runtime example.
+
+## Requirements and compatibility
+
+- **Editor:** VS Code 1.96 or newer on Windows x64.
+- **Offline tests:** no Minecraft server or Java required.
+- **Runtime tests:** trusted workspace, suitable Java, compatible Paper/Skript JARs, and Minecraft EULA acceptance. Obtain server and plugin JARs separately.
+- **Minecraft target:** Paper for Minecraft 1.21 and newer, paired with a Skript release that supports that server.
+- **Verified Skript minor lines:** 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16, and 2.17.
+
+Ten exact Paper/Skript combinations passed seven Reward Lab assertions each, using Paper 1.21, 1.21.4, or 1.21.11 and Java 21.0.12. The badges summarize this scope; they do not certify every patch pairing. Newer servers may need a different Java version. Other combinations and addons need local verification. Linux, macOS, and Windows ARM64 are not certified for this release.
+
+[View the exact tested pairings](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
+
+## Documentation and support
+
+- [Installation guide](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/install.md)
+- [Writing tests and assertions](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/testing-guide.md)
+- [Runtime testing](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/runtime-testing.md)
+- [Compatibility and tested versions](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
+- [Report a bug or request a feature](https://github.com/Alexpetkanov13/SkTestLab/issues)
+- [GitHub project](https://github.com/Alexpetkanov13/SkTestLab)
+
+When reporting an issue, include your SkTestLab, VS Code, Paper, Skript, and Java versions, relevant test output, and a small example that reproduces it. Remove private information before sharing logs.
+
+## Current scope
+
+Offline checks use structural heuristics rather than a complete Skript parser. Runtime tests use console context and exported functions. Automated players, arbitrary event simulation, debugging, and coverage are outside version 1.0.0. Disposable environments keep production worlds separate; scripts and JARs still run with your operating system permissions.
+
+**Made by DHeaven · SkTestLab 1.0.0 · MIT**

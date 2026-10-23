@@ -1,0 +1,11 @@
+options:
+    prefix: &aSkTestLab
+
+function reward(n: number) :: number:
+    if {_n} > 0:
+        return {_n} * 2
+    return 0
+
+command /reward:
+    trigger:
+        send "%reward(5)%"

@@ -1,0 +1,17 @@
+# Reward Lab: pure functions, no addons or player required.
+# Each completed task earns 10 coins. Rewards are capped at 1000.
+function labReward(tasks: number, multiplier: number) :: number:
+    if {_tasks} < 0:
+        return 0
+    if {_multiplier} < 0:
+        return 0
+    set {_coins} to floor({_tasks} * 10 * {_multiplier})
+    if {_coins} > 1000:
+        return 1000
+    return {_coins}
+
+command /labreward <number>:
+    description: Preview the reward for a number of completed tasks
+    trigger:
+        set {_coins} to labReward(arg-1, 1)
+        send "&8[&6Reward Lab&8] &7Your reward: &e%{_coins}% coins" to sender

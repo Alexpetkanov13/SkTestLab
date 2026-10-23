@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "inventory-context",
+  "name": "Player-dependent inventory template",
+  "mode": "runtime",
+  "targets": ["examples/inventory/script.sk"],
+  "template": true,
+  "timeoutMs": 300000,
+  "assertions": [
+    {
+      "condition": "false is true",
+      "message": "Supply an actual player context and inventory expectation"
+    }
+  ]
+}

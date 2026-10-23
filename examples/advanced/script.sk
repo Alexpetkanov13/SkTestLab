@@ -1,0 +1,7 @@
+function advancedValue() :: number:
+    return 42
+
+on load:
+    loop 3 times:
+        loop 2 times:
+            send "%loop-number%" to console

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "beginner-structure",
+  "name": "Beginner declaration regression",
+  "mode": "offline",
+  "targets": ["examples/beginner/script.sk"],
+  "tags": ["offline", "beginner"],
+  "assertions": [
+    {
+      "kind": "diagnostic",
+      "operator": "size",
+      "expected": 0
+    },
+    {
+      "kind": "symbol",
+      "operator": "contains",
+      "expected": "reward"
+    }
+  ]
+}

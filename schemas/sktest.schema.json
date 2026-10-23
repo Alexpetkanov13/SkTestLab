@@ -1,0 +1,147 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SkTestLab test v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "name", "mode", "targets", "assertions"],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "mode": {
+      "enum": ["offline", "runtime"]
+    },
+    "targets": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 100,
+      "items": {
+        "type": "string",
+        "pattern": "\\.sk$"
+      }
+    },
+    "assertions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1000
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "setup": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[^\\r\\n]*$"
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[^\\r\\n]*$"
+      }
+    },
+    "cleanup": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[^\\r\\n]*$"
+      }
+    },
+    "timeoutMs": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 600000
+    },
+    "skip": {
+      "type": "boolean"
+    },
+    "template": {
+      "type": "boolean"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "mode": {
+            "const": "offline"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "assertions": {
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["kind", "operator"],
+              "properties": {
+                "kind": {
+                  "enum": ["diagnostic", "symbol", "source", "structure"]
+                },
+                "operator": {
+                  "enum": [
+                    "equal",
+                    "notEqual",
+                    "greater",
+                    "less",
+                    "truthy",
+                    "set",
+                    "unset",
+                    "size",
+                    "contains",
+                    "notContains"
+                  ]
+                },
+                "expected": {},
+                "rule": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "assertions": {
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["condition"],
+              "properties": {
+                "condition": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^[^\\r\\n]+$"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

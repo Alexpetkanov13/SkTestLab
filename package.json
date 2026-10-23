@@ -1,0 +1,401 @@
+{
+  "name": "sktestlab",
+  "displayName": "SkTestLab — Skript Testing & Diagnostics",
+  "description": "Write. Test. Debug. Perfect. Skript diagnostics and native offline and isolated Paper testing.",
+  "version": "0.4.1",
+  "publisher": "dheaven",
+  "author": "DHeaven",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Testing Programming Languages",
+    "Linters"
+  ],
+  "keywords": [
+    "skript",
+    "minecraft",
+    "paper",
+    "testing"
+  ],
+  "main": "./dist/extension.js",
+  "extensionKind": [
+    "workspace"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": "limited",
+      "description": "Read-only analysis and offline tests. Runtime and file creation require trust."
+    },
+    "virtualWorkspaces": false
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "check": "tsc --noEmit",
+    "lint": "eslint src test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:integration": "npm run build && tsc -p test/integration && vscode-test",
+    "package": "npm run build && vsce package --target win32-x64 --allow-missing-repository --no-rewrite-relative-links",
+    "vscode:prepublish": "npm run check && npm run build",
+    "test:project": "npm run build && tsc -p test/integration && node scripts/test-project.mjs",
+    "test:runtime": "npm run check && esbuild test/runtime/real-server.ts --bundle --platform=node --format=esm --outfile=.vscode-test/runtime-smoke.mjs && node .vscode-test/runtime-smoke.mjs",
+    "test:matrix": "npm run check && esbuild test/runtime/matrix.ts --bundle --platform=node --format=esm --outfile=.vscode-test/matrix.mjs && node .vscode-test/matrix.mjs",
+    "test:minimum": "npm run build && tsc -p test/integration && node scripts/test-editor.mjs",
+    "test:restricted": "npm run build && tsc -p test/integration && node scripts/test-editor.mjs --restricted",
+    "release:prepare": "npm run package && python scripts/prepare-release.py",
+    "test:reliability": "npm run check && esbuild test/runtime/reliability.ts --bundle --platform=node --format=esm --outfile=.vscode-test/reliability.mjs && node .vscode-test/reliability.mjs",
+    "test:distribution": "tsc -p test/integration && node scripts/test-distribution.mjs",
+    "test:source-release": "node scripts/test-source-release.mjs",
+    "audit:release": "python scripts/audit-release.py",
+    "test:release-audit": "python scripts/test_release_audit.py"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "sktestlab.recoverRuntimeEnvironments",
+        "title": "SkTestLab: Recover Runtime Environments"
+      },
+      {
+        "command": "sktestlab.openDashboard",
+        "title": "SkTestLab: Open Dashboard",
+        "icon": "$(dashboard)"
+      },
+      {
+        "command": "sktestlab.initializeProject",
+        "title": "SkTestLab: Initialize Project"
+      },
+      {
+        "command": "sktestlab.analyzeCurrentFile",
+        "title": "SkTestLab: Analyze Current File"
+      },
+      {
+        "command": "sktestlab.analyzeWorkspace",
+        "title": "SkTestLab: Analyze Workspace"
+      },
+      {
+        "command": "sktestlab.createTest",
+        "title": "SkTestLab: Create Test"
+      },
+      {
+        "command": "sktestlab.generateTestSuite",
+        "title": "SkTestLab: Generate Test Suite"
+      },
+      {
+        "command": "sktestlab.discoverTests",
+        "title": "SkTestLab: Discover Tests"
+      },
+      {
+        "command": "sktestlab.runAllTests",
+        "title": "SkTestLab: Run All Tests"
+      },
+      {
+        "command": "sktestlab.runCurrentFileTests",
+        "title": "SkTestLab: Run Current File Tests"
+      },
+      {
+        "command": "sktestlab.runFailedTests",
+        "title": "SkTestLab: Run Failed Tests"
+      },
+      {
+        "command": "sktestlab.stopTests",
+        "title": "SkTestLab: Stop Tests"
+      },
+      {
+        "command": "sktestlab.configureRuntime",
+        "title": "SkTestLab: Configure Runtime"
+      },
+      {
+        "command": "sktestlab.validateRuntimeEnvironment",
+        "title": "SkTestLab: Validate Runtime Environment"
+      },
+      {
+        "command": "sktestlab.openTestLogs",
+        "title": "SkTestLab: Open Test Logs"
+      },
+      {
+        "command": "sktestlab.exportTestReport",
+        "title": "SkTestLab: Export Test Report"
+      },
+      {
+        "command": "sktestlab.openDocumentation",
+        "title": "SkTestLab: Open Documentation"
+      },
+      {
+        "command": "sktestlab.clearTestHistory",
+        "title": "SkTestLab: Clear Test History"
+      },
+      {
+        "command": "sktestlab.showDiagnosticsSummary",
+        "title": "SkTestLab: Show Diagnostics Summary"
+      },
+      {
+        "command": "sktestlab.runByTag",
+        "title": "SkTestLab: Run Tests by Tag"
+      },
+      {
+        "command": "sktestlab.rerunLastSelection",
+        "title": "SkTestLab: Rerun Last Selection"
+      },
+      {
+        "command": "sktestlab.runOfflineTests",
+        "title": "SkTestLab: Run Offline Tests",
+        "icon": "$(pass)"
+      }
+    ],
+    "configuration": {
+      "title": "SkTestLab",
+      "properties": {
+        "sktestlab.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable SkTestLab.",
+          "scope": "resource"
+        },
+        "sktestlab.analysis.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Publish structural and heuristic Skript findings.",
+          "scope": "resource"
+        },
+        "sktestlab.analysis.debounceMs": {
+          "type": "number",
+          "default": 300,
+          "description": "Analysis delay after editing (milliseconds).",
+          "scope": "resource",
+          "minimum": 100,
+          "maximum": 600000
+        },
+        "sktestlab.analysis.disabledRules": {
+          "type": "array",
+          "default": [],
+          "description": "Diagnostic IDs to suppress.",
+          "scope": "resource",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sktestlab.analysis.maxDepth": {
+          "type": "number",
+          "default": 6,
+          "description": "Warn above this nesting depth.",
+          "scope": "resource",
+          "minimum": 1,
+          "maximum": 30
+        },
+        "sktestlab.analysis.maxFileSizeKb": {
+          "type": "number",
+          "default": 1024,
+          "description": "Skip larger source files.",
+          "scope": "resource",
+          "minimum": 100,
+          "maximum": 600000
+        },
+        "sktestlab.tests.include": {
+          "type": "string",
+          "default": "**/*.sktest.json",
+          "description": "Test discovery glob.",
+          "scope": "resource"
+        },
+        "sktestlab.tests.exclude": {
+          "type": "string",
+          "default": "**/{node_modules,.git,.sktestlab}/**",
+          "description": "Excluded test paths.",
+          "scope": "resource"
+        },
+        "sktestlab.tests.timeoutMs": {
+          "type": "number",
+          "default": 30000,
+          "description": "Per-test timeout, including runtime startup. Raise this for cold Paper startup.",
+          "scope": "resource",
+          "minimum": 100,
+          "maximum": 600000
+        },
+        "sktestlab.runtime.javaPath": {
+          "type": "string",
+          "default": "java",
+          "description": "Java executable on the extension host.",
+          "scope": "machine-overridable"
+        },
+        "sktestlab.runtime.paperJarPath": {
+          "type": "string",
+          "default": "",
+          "description": "Absolute path to a user-selected Paper JAR.",
+          "scope": "machine-overridable"
+        },
+        "sktestlab.runtime.skriptJarPath": {
+          "type": "string",
+          "default": "",
+          "description": "Absolute path to a user-selected Skript JAR.",
+          "scope": "machine-overridable"
+        },
+        "sktestlab.runtime.addonJarPaths": {
+          "type": "array",
+          "default": [],
+          "description": "Absolute paths to user-selected addon JARs.",
+          "scope": "machine-overridable",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sktestlab.runtime.memoryMb": {
+          "type": "number",
+          "default": 2048,
+          "description": "Maximum Java heap (MiB).",
+          "scope": "machine-overridable",
+          "minimum": 512,
+          "maximum": 16384
+        },
+        "sktestlab.runtime.startupTimeoutMs": {
+          "type": "number",
+          "default": 180000,
+          "description": "Maximum Paper startup duration.",
+          "scope": "machine-overridable",
+          "minimum": 100,
+          "maximum": 600000
+        },
+        "sktestlab.runtime.keepEnvironment": {
+          "type": "boolean",
+          "default": false,
+          "description": "Keep owned test environment directories for inspection.",
+          "scope": "machine-overridable"
+        },
+        "sktestlab.runtime.eulaAccepted": {
+          "type": "boolean",
+          "default": false,
+          "description": "You have read and accepted https://www.minecraft.net/eula for the isolated test server.",
+          "scope": "machine-overridable"
+        },
+        "sktestlab.compatibility.minecraftVersion": {
+          "type": "string",
+          "default": "",
+          "description": "Expected Minecraft version (informational; runtime uses the selected JAR).",
+          "scope": "resource"
+        },
+        "sktestlab.compatibility.skriptVersion": {
+          "type": "string",
+          "default": "",
+          "description": "Skript version for version-aware diagnostics. Empty means unknown.",
+          "scope": "resource"
+        },
+        "sktestlab.reports.outputDirectory": {
+          "type": "string",
+          "default": ".sktestlab/reports",
+          "description": "Suggested project-relative export directory.",
+          "scope": "resource"
+        },
+        "sktestlab.reports.defaultFormat": {
+          "type": "string",
+          "default": "json",
+          "description": "Default report format.",
+          "scope": "resource",
+          "enum": [
+            "json",
+            "html",
+            "junit"
+          ]
+        },
+        "sktestlab.ui.showCodeLens": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show test generation and related test actions.",
+          "scope": "resource"
+        },
+        "sktestlab.logging.level": {
+          "type": "string",
+          "default": "info",
+          "description": "Output detail level.",
+          "scope": "resource",
+          "enum": [
+            "error",
+            "info",
+            "debug"
+          ]
+        },
+        "sktestlab.runtime.dependencyCachePath": {
+          "type": "string",
+          "default": "",
+          "description": "Optional existing server directory. Copy only cache, libraries and versions into the disposable environment; worlds and plugin data are never imported.",
+          "scope": "machine-overridable"
+        },
+        "sktestlab.ui.openDashboardOnStartup": {
+          "type": "boolean",
+          "default": false,
+          "description": "Open the dashboard when SkTestLab activates.",
+          "scope": "resource"
+        }
+      }
+    },
+    "jsonValidation": [
+      {
+        "fileMatch": "*.sktest.json",
+        "url": "./schemas/sktest.schema.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "json",
+        "path": "./assets/tests.code-snippets"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "sktestlab",
+          "title": "SkTestLab",
+          "icon": "assets/lab.svg"
+        }
+      ]
+    },
+    "views": {
+      "sktestlab": [
+        {
+          "id": "sktestlab.lab",
+          "name": "Lab overview"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "sktestlab.openDashboard",
+          "when": "view == sktestlab.lab",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.20.5",
+    "@types/vscode": "^1.96.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.1.0",
+    "@vscode/vsce": "^4.0.0",
+    "esbuild": "^0.28.2",
+    "eslint": "^10.13.0",
+    "mocha": "^12.0.3",
+    "prettier": "^3.9.10",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.0",
+    "vitest": "^5.0.5"
+  },
+  "overrides": {
+    "mocha": "$mocha"
+  },
+  "icon": "assets/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alexpetkanov13/SkTestLab.git"
+  },
+  "homepage": "https://github.com/Alexpetkanov13/SkTestLab#readme",
+  "bugs": {
+    "url": "https://github.com/Alexpetkanov13/SkTestLab/issues"
+  }
+}

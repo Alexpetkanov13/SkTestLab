@@ -1,0 +1,45 @@
+name: Quality
+on: [push, pull_request]
+jobs:
+  quality:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run format:check
+      - run: npm run lint
+      - run: npm run check
+      - run: npm test
+      - run: npm audit --audit-level=high
+      - run: npm run build
+      - name: Extension host on Linux
+        if: runner.os == 'Linux'
+        run: xvfb-run -a npm run test:integration
+      - name: Extension host on Windows/macOS
+        if: runner.os != 'Linux'
+        run: npm run test:integration
+      - name: Minimum editor and Restricted Mode on Linux
+        if: runner.os == 'Linux'
+        run: |
+          xvfb-run -a npm run test:minimum
+          xvfb-run -a npm run test:restricted
+      - name: Minimum editor and Restricted Mode on Windows/macOS
+        if: runner.os != 'Linux'
+        run: |
+          npm run test:minimum
+          npm run test:restricted
+      - run: node dist/cli.js examples/beginner/script.sktest.json --junit=results.xml
+      - run: npm run package
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sktestlab-${{ matrix.os }}
+          path: |
+            *.vsix
+            results.xml

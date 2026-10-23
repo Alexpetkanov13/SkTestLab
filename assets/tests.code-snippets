@@ -1,0 +1,16 @@
+{
+  "SkTestLab offline test": {
+    "prefix": "sktest",
+    "body": [
+      "{",
+      "  \"schemaVersion\": 1,",
+      "  \"id\": \"${1:structure}\",",
+      "  \"name\": \"${2:Structure regression}\",",
+      "  \"mode\": \"offline\",",
+      "  \"targets\": [\"${3:script.sk}\"],",
+      "  \"assertions\": [{\"kind\": \"diagnostic\", \"operator\": \"size\", \"expected\": 0}]",
+      "}",
+    ],
+    "description": "Offline structure and diagnostic regression",
+  },
+}

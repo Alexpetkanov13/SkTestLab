@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "nested-structure",
+  "name": "Advanced declaration regression",
+  "mode": "offline",
+  "targets": ["examples/advanced/script.sk"],
+  "assertions": [
+    {
+      "kind": "symbol",
+      "operator": "contains",
+      "expected": "advancedValue"
+    }
+  ]
+}

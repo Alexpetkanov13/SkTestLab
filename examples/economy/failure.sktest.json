@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "economy-negative-price",
+  "name": "Reject invalid transaction",
+  "mode": "runtime",
+  "targets": ["examples/economy/script.sk"],
+  "timeoutMs": 300000,
+  "setup": ["set {sktestlab::balance} to 100"],
+  "actions": ["set {_purchased} to purchase(-1)"],
+  "assertions": [
+    {
+      "condition": "{_purchased} is false"
+    },
+    {
+      "condition": "{sktestlab::balance} is 100"
+    }
+  ],
+  "cleanup": ["delete {sktestlab::*}"]
+}

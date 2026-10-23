@@ -1,0 +1,27 @@
+name: Package preview (no publication)
+on: workflow_dispatch
+jobs:
+  package:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - run: npm ci
+      - run: npm run check && npm run lint && npm test && npm run package
+      - run: python scripts/prepare-release.py
+      - run: npm run test:release-audit
+      - run: npm run test:source-release
+      - run: npm run test:distribution
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sktestlab-vsix
+          path: |
+            *.vsix
+            release/*/*-download.zip
+            release/*/SHA256SUMS.txt

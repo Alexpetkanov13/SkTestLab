@@ -1,0 +1,32 @@
+name: Real Paper verification (owner provisioned)
+on:
+  workflow_dispatch:
+    inputs:
+      serverDirectory:
+        description: Absolute directory of an existing Paper/Skript test server with accepted EULA
+        required: true
+        type: string
+      javaPath:
+        description: Java executable on the self-hosted runner
+        default: java
+        type: string
+jobs:
+  runtime:
+    runs-on: [self-hosted, sktestlab-runtime]
+    timeout-minutes: 30
+    env:
+      SKTESTLAB_RUNTIME_SERVER: ${{ inputs.serverDirectory }}
+      SKTESTLAB_RUNTIME_JAVA: ${{ inputs.javaPath }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run test:runtime
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: real-paper-results
+          path: .vscode-test/runtime-real-*/

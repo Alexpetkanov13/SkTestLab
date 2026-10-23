@@ -1,0 +1,3 @@
+command /inventory-count:
+    trigger:
+        send "%number of items in player's inventory%"

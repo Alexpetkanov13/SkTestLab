@@ -1,0 +1,2 @@
+function reward() :: number:
+    return 42

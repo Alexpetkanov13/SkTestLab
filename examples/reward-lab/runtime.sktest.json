@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "reward-behavior",
+  "name": "Reward calculation handles bonuses, limits and invalid input",
+  "mode": "runtime",
+  "targets": ["reward.sk"],
+  "timeoutMs": 300000,
+  "actions": [
+    "set {_normal} to labReward(5, 1)",
+    "set {_bonus} to labReward(5, 2)",
+    "set {_empty} to labReward(0, 2)",
+    "set {_negative} to labReward(-3, 1)",
+    "set {_invalidBonus} to labReward(5, -1)",
+    "set {_rounded} to labReward(3, 1.25)",
+    "set {_capped} to labReward(200, 2)"
+  ],
+  "assertions": [
+    { "condition": "{_normal} is 50", "message": "Five tasks earn 50 coins" },
+    {
+      "condition": "{_bonus} is 100",
+      "message": "Double rewards earn 100 coins"
+    },
+    { "condition": "{_empty} is 0", "message": "Zero tasks earn nothing" },
+    {
+      "condition": "{_negative} is 0",
+      "message": "Negative task counts earn nothing"
+    },
+    {
+      "condition": "{_invalidBonus} is 0",
+      "message": "Negative multipliers earn nothing"
+    },
+    {
+      "condition": "{_rounded} is 37",
+      "message": "Fractional coins round down"
+    },
+    {
+      "condition": "{_capped} is 1000",
+      "message": "Rewards stop at 1000 coins"
+    }
+  ]
+}

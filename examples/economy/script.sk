@@ -1,0 +1,7 @@
+function purchase(price: number) :: boolean:
+    if {_price} < 0:
+        return false
+    if {sktestlab::balance} < {_price}:
+        return false
+    remove {_price} from {sktestlab::balance}
+    return true

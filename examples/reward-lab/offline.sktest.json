@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "id": "reward-source",
+  "name": "Reward script has no static diagnostics",
+  "mode": "offline",
+  "targets": ["reward.sk"],
+  "assertions": [
+    { "kind": "diagnostic", "operator": "size", "expected": 0 },
+    { "kind": "symbol", "operator": "contains", "expected": "labReward" }
+  ]
+}

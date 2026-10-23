@@ -1,0 +1,15 @@
+node_modules/
+dist/
+out/
+.vscode-test/
+*.vsix
+coverage/
+.sktestlab/
+release/
+.vscode/
+__pycache__/
+*.pyc
+.env
+.env.*
+*.jar
+*.log

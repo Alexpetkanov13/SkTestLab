@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "economy-purchase",
+  "name": "Purchase exercises project function",
+  "mode": "runtime",
+  "targets": ["examples/economy/script.sk"],
+  "tags": ["runtime", "economy"],
+  "timeoutMs": 300000,
+  "setup": ["set {sktestlab::balance} to 100"],
+  "actions": ["set {_purchased} to purchase(30)"],
+  "assertions": [
+    {
+      "condition": "{_purchased} is true",
+      "message": "Purchase succeeded"
+    },
+    {
+      "condition": "{sktestlab::balance} is 70",
+      "message": "Balance is reduced by project purchase function"
+    }
+  ],
+  "cleanup": ["delete {sktestlab::*}"]
+}

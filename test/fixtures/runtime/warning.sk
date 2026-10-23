@@ -1,0 +1,3 @@
+function warningFixture() :: text:
+    set {_values::*} to "a", "b", "c"
+    return {_values::1}

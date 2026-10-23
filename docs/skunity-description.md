@@ -8,13 +8,13 @@ A testing workbench for Skript developers, right inside VS Code. Catch source is
 
 **Free · MIT open source · Local execution · No account or telemetry required**
 
-[![Version: 1.0.0](https://img.shields.io/static/v1?label=Version&message=1.0.0&color=10b981)](https://github.com/Alexpetkanov13/SkTestLab)
-[![VS Code: 1.96+](https://img.shields.io/static/v1?label=VS%20Code&message=1.96%2B&color=007acc)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/install.md)
-[![Platform: Windows x64](https://img.shields.io/static/v1?label=Platform&message=Windows%20x64&color=475569)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
-[![Paper: 1.21+ target](https://img.shields.io/static/v1?label=Paper&message=1.21%2B%20target&color=0284c7)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
-[![Skript: 2.9–2.17 verified](https://img.shields.io/static/v1?label=Skript&message=2.9%E2%80%932.17%20verified&color=f97316)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
-[![Java: 21 tested](https://img.shields.io/static/v1?label=Java&message=21%20tested&color=dc2626)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
-[![License: MIT](https://img.shields.io/static/v1?label=License&message=MIT&color=65a30d)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/LICENSE.txt)
+[![RELEASE: 1.0.0](https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/assets/badges/version.png)](https://github.com/Alexpetkanov13/SkTestLab/releases/tag/v1.0.0)
+[![VS CODE: 1.96+](https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/assets/badges/vscode.png)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/install.md)
+[![DESKTOP: Windows x64](https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/assets/badges/windows.png)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
+[![PAPER: 1.21+ target](https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/assets/badges/paper.png)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
+[![SKRIPT: 2.9–2.17 verified](https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/assets/badges/skript.png)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
+[![JAVA: 21 tested](https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/assets/badges/java.png)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
+[![LICENSE: MIT](https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/assets/badges/license.png)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/LICENSE.txt)
 
 [Download 1.0.0](https://github.com/Alexpetkanov13/SkTestLab/releases/tag/v1.0.0) · [Getting started](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/getting-started.md) · [Support](https://github.com/Alexpetkanov13/SkTestLab/issues)
 

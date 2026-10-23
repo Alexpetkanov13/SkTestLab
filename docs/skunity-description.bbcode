@@ -8,13 +8,10 @@ A testing workbench for Skript developers, right inside VS Code. Catch source is
 
 [b]Free · MIT open source · Local execution · No account or telemetry required[/b]
 
-[url=https://github.com/Alexpetkanov13/SkTestLab][img]https://img.shields.io/static/v1?label=Version&message=1.0.0&color=10b981[/img][/url]
-[url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/install.md][img]https://img.shields.io/static/v1?label=VS%20Code&message=1.96%2B&color=007acc[/img][/url]
-[url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md][img]https://img.shields.io/static/v1?label=Platform&message=Windows%20x64&color=475569[/img][/url]
-[url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md][img]https://img.shields.io/static/v1?label=Paper&message=1.21%2B%20target&color=0284c7[/img][/url]
-[url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md][img]https://img.shields.io/static/v1?label=Skript&message=2.9%E2%80%932.17%20verified&color=f97316[/img][/url]
-[url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md][img]https://img.shields.io/static/v1?label=Java&message=21%20tested&color=dc2626[/img][/url]
-[url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/LICENSE.txt][img]https://img.shields.io/static/v1?label=License&message=MIT&color=65a30d[/img][/url]
+[center]
+[url=https://github.com/Alexpetkanov13/SkTestLab/releases/tag/v1.0.0][img]https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/assets/badges/version.png[/img][/url] [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/install.md][img]https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/assets/badges/vscode.png[/img][/url] [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md][img]https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/assets/badges/windows.png[/img][/url]
+[url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md][img]https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/assets/badges/paper.png[/img][/url] [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md][img]https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/assets/badges/skript.png[/img][/url] [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md][img]https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/assets/badges/java.png[/img][/url] [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/LICENSE.txt][img]https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/assets/badges/license.png[/img][/url]
+[/center]
 
 [url=https://github.com/Alexpetkanov13/SkTestLab/releases/tag/v1.0.0]Download 1.0.0[/url] · [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/getting-started.md]Getting started[/url] · [url=https://github.com/Alexpetkanov13/SkTestLab/issues]Support[/url]
 
@@ -30,7 +27,6 @@ Keep [b].sk[/b] files and [b].sktest.json[/b] tests together in your project. Ru
 
 From the included Reward Lab example, [b]reward.sk[/b]:
 
-
 [code]
 function labReward(tasks: number, multiplier: number) :: number:
     if {_tasks} < 0:
@@ -43,10 +39,7 @@ function labReward(tasks: number, multiplier: number) :: number:
     return {_coins}
 [/code]
 
-
-
 Save this runtime test beside it as [b]reward-check.sktest.json[/b]:
-
 
 [code]
 {
@@ -63,56 +56,44 @@ Save this runtime test beside it as [b]reward-check.sktest.json[/b]:
 }
 [/code]
 
-
-
 Configure Runtime, then run it from Test Explorer. Keep [b].sk[/b] and [b].sktest.json[/b] files together in version control, so the behavior you expect travels with your script.
 
 [size=5][b]Features[/b][/size]
 
 [size=4][b]🔎 Diagnostics while you write[/b][/size]
 
-[list]
-[*]Twelve configurable diagnostic rules with confidence labels.
-[*]Targeted Quick Fixes and cross-file declaration warnings.
-[*]Analyze a file or workspace from the Command Palette.
-[*]Works alongside your existing syntax-highlighting extension.
-[/list]
+• Twelve configurable diagnostic rules with confidence labels.
+• Targeted Quick Fixes and cross-file declaration warnings.
+• Analyze a file or workspace from the Command Palette.
+• Works alongside your existing syntax-highlighting extension.
 
 [size=4][b]⚡ Offline checks[/b][/size]
 
-[list]
-[*]Assert diagnostics, declared symbols, source text, and structure.
-[*]Run without Minecraft, server JARs, or Java.
-[*]Versioned [b].sktest.json[/b] definitions, JSON Schema, and snippets.
-[*]Generate starting expectations from declarations and review them before use.
-[/list]
+• Assert diagnostics, declared symbols, source text, and structure.
+• Run without Minecraft, server JARs, or Java.
+• Versioned [b].sktest.json[/b] definitions, JSON Schema, and snippets.
+• Generate starting expectations from declarations and review them before use.
 
 [size=4][b]🧪 Real Paper/Skript execution[/b][/size]
 
-[list]
-[*]Select your compatible Paper/Skript JARs and Java executable.
-[*]Invoke project functions and evaluate Skript conditions in console context.
-[*]Disposable server environments, loopback networking, and owned-directory cleanup.
-[*]Observed runtime versions and console evidence retained with results.
-[/list]
+• Select your compatible Paper/Skript JARs and Java executable.
+• Invoke project functions and evaluate Skript conditions in console context.
+• Disposable server environments, loopback networking, and owned-directory cleanup.
+• Observed runtime versions and console evidence retained with results.
 
 [size=4][b]▶️ Native VS Code workflow[/b][/size]
 
-[list]
-[*]Discover and organize tests in Test Explorer.
-[*]Run selections, related-file tests, or an entire suite.
-[*]Rerun failures, cancel execution, and inspect assertion differences.
-[*]Project setup, test generation, analysis, and runtime validation commands.
-[/list]
+• Discover and organize tests in Test Explorer.
+• Run selections, related-file tests, or an entire suite.
+• Rerun failures, cancel execution, and inspect assertion differences.
+• Project setup, test generation, analysis, and runtime validation commands.
 
 [size=4][b]📊 Results, history, and reports[/b][/size]
 
-[list]
-[*]Searchable results, filters, sorting, and expandable assertion evidence.
-[*]Source links, console excerpts, workspace history, and runtime readiness checks.
-[*]Trends for comparable test selections and slowest-test insights.
-[*]Export JSON, HTML, or JUnit reports; use the offline CLI for scripted checks.
-[/list]
+• Searchable results, filters, sorting, and expandable assertion evidence.
+• Source links, console excerpts, workspace history, and runtime readiness checks.
+• Trends for comparable test selections and slowest-test insights.
+• Export JSON, HTML, or JUnit reports; use the offline CLI for scripted checks.
 
 [size=5][b]🎨 Your dashboard, your style[/b][/size]
 
@@ -134,25 +115,21 @@ The download contains [b]the SkTestLab extension and the Reward Lab example[/b].
 
 [size=5][b]Installation[/b][/size]
 
-[list=1]
-[*]Download [url=https://github.com/Alexpetkanov13/SkTestLab/releases/download/v1.0.0/sktestlab-1.0.0-skunity.zip]the extension and example ZIP[/url] and extract it.
-[*]In VS Code, open [b]Extensions → … → Install from VSIX[/b] and select the included extension.
-[*]Extract [b]reward-lab.zip[/b] and open its [b]reward-lab[/b] folder in VS Code.
-[*]Run the example's offline test from Test Explorer, then use [b]SkTestLab: Open Dashboard[/b] to inspect the result.
-[*]For real server tests, run [b]SkTestLab: Configure Runtime[/b], select your local Java and compatible Paper/Skript JARs, accept the Minecraft EULA, and run the runtime example.
-[/list]
+• Download [url=https://github.com/Alexpetkanov13/SkTestLab/releases/download/v1.0.0/sktestlab-1.0.0-skunity.zip]the extension and example ZIP[/url] and extract it.
+• In VS Code, open [b]Extensions → … → Install from VSIX[/b] and select the included extension.
+• Extract [b]reward-lab.zip[/b] and open its [b]reward-lab[/b] folder in VS Code.
+• Run the example's offline test from Test Explorer, then use [b]SkTestLab: Open Dashboard[/b] to inspect the result.
+• For real server tests, run [b]SkTestLab: Configure Runtime[/b], select your local Java and compatible Paper/Skript JARs, accept the Minecraft EULA, and run the runtime example.
 
 [size=5][b]Requirements[/b][/size]
 
-[list]
-[*][b]Editor[/b] — VS Code 1.96 or newer
-[*][b]Desktop[/b] — Windows x64
-[*][b]Offline checks[/b] — No Minecraft server or Java required
-[*][b]Runtime server[/b] — Compatible Paper for Minecraft 1.21+
-[*][b]Skript[/b] — Verified minor lines 2.9–2.17; choose a release compatible with your Paper version
-[*][b]Java[/b] — Java 21.0.12 used for recorded pairings; follow the requirements of your selected Paper release
-[*][b]Runtime setup[/b] — Trusted workspace, local Java and JARs, Minecraft EULA acceptance
-[/list]
+• [b]Editor[/b] — VS Code 1.96 or newer
+• [b]Desktop[/b] — Windows x64
+• [b]Offline checks[/b] — No Minecraft server or Java required
+• [b]Runtime server[/b] — Compatible Paper for Minecraft 1.21+
+• [b]Skript[/b] — Verified minor lines 2.9–2.17; choose a release compatible with your Paper version
+• [b]Java[/b] — Java 21.0.12 used for recorded pairings; follow the requirements of your selected Paper release
+• [b]Runtime setup[/b] — Trusted workspace, local Java and JARs, Minecraft EULA acceptance
 
 Server and plugin JARs are obtained separately.
 
@@ -168,24 +145,20 @@ Release verification also includes [b]166 unit tests[/b], extension-host and dis
 
 Open the Command Palette and search for [b]SkTestLab[/b]:
 
-[list]
-[*][b]Initialize Project[/b] and [b]Create Test[/b] to get started.
-[*][b]Analyze Current File[/b] or [b]Analyze Workspace[/b] for diagnostics.
-[*][b]Run All Tests[/b], [b]Run Failed Tests[/b], and [b]Stop Tests[/b] for execution.
-[*][b]Configure Runtime[/b] and [b]Validate Runtime Environment[/b] for server setup.
-[*][b]Open Dashboard[/b], [b]Open Test Logs[/b], and [b]Export Test Report[/b] for results.
-[/list]
+• [b]Initialize Project[/b] and [b]Create Test[/b] to get started.
+• [b]Analyze Current File[/b] or [b]Analyze Workspace[/b] for diagnostics.
+• [b]Run All Tests[/b], [b]Run Failed Tests[/b], and [b]Stop Tests[/b] for execution.
+• [b]Configure Runtime[/b] and [b]Validate Runtime Environment[/b] for server setup.
+• [b]Open Dashboard[/b], [b]Open Test Logs[/b], and [b]Export Test Report[/b] for results.
 
 [size=5][b]Documentation[/b][/size]
 
-[list]
-[*][b]First project[/b] — [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/getting-started.md]Getting started[/url] · [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/install.md]Installation[/url]
-[*][b]Test definitions[/b] — [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/testing-guide.md]Assertions and lifecycle[/url] · [url=https://github.com/Alexpetkanov13/SkTestLab/tree/main/examples/reward-lab]Reward Lab[/url]
-[*][b]Editor tools[/b] — [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/diagnostics.md]Diagnostics[/url] · [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/configuration.md]Configuration[/url]
-[*][b]Runtime[/b] — [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/runtime-testing.md]Paper/Skript testing[/url] · [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md]Compatibility[/url]
-[*][b]Operations[/b] — [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/troubleshooting.md]Troubleshooting[/url] · [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/verification.md]Verification[/url]
-[*][b]Project[/b] — [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/architecture.md]Architecture[/url] · [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/roadmap.md]Roadmap[/url]
-[/list]
+• [b]First project[/b] — [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/getting-started.md]Getting started[/url] · [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/install.md]Installation[/url]
+• [b]Test definitions[/b] — [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/testing-guide.md]Assertions and lifecycle[/url] · [url=https://github.com/Alexpetkanov13/SkTestLab/tree/main/examples/reward-lab]Reward Lab[/url]
+• [b]Editor tools[/b] — [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/diagnostics.md]Diagnostics[/url] · [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/configuration.md]Configuration[/url]
+• [b]Runtime[/b] — [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/runtime-testing.md]Paper/Skript testing[/url] · [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md]Compatibility[/url]
+• [b]Operations[/b] — [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/troubleshooting.md]Troubleshooting[/url] · [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/verification.md]Verification[/url]
+• [b]Project[/b] — [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/architecture.md]Architecture[/url] · [url=https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/roadmap.md]Roadmap[/url]
 
 [size=5][b]Support and contributions[/b][/size]
 

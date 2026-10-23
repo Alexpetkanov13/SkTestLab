@@ -1,24 +1,25 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Alexpetkanov13/SkTestLab/main/assets/icon-v2-256.png" alt="SkTestLab logo" width="192">
-</p>
+<div align="center">
 
-<h1 align="center">SkTestLab</h1>
+<img src="assets/icon-v2-256.png" alt="SkTestLab" width="160">
+
+# SkTestLab
 
 **Write Skript. Run real tests. Ship with confidence.**
 
-A testing workbench for Skript developers, right inside VS Code. Catch source issues, check your code offline, and run real Paper/Skript assertions. Bring your results together in a dashboard designed for everyday development.
+Skript diagnostics and repeatable tests inside VS Code:<br>
+offline checks, real Paper assertions, clear results, and White / Dark dashboards.
 
-**Free · MIT open source · Local execution · No account or telemetry required**
+[![RELEASE: 1.0.0](assets/badges/version.png)](https://github.com/Alexpetkanov13/SkTestLab/releases/tag/v1.0.0)
+[![VS CODE: 1.96+](assets/badges/vscode.png)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/install.md)
+[![DESKTOP: Windows x64](assets/badges/windows.png)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
+[![PAPER: 1.21+ target](assets/badges/paper.png)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
+[![SKRIPT: 2.9–2.17 verified](assets/badges/skript.png)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
+[![JAVA: 21 tested](assets/badges/java.png)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
+[![LICENSE: MIT](assets/badges/license.png)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/LICENSE.txt)
 
-[![Version: 1.0.0](https://img.shields.io/static/v1?label=Version&message=1.0.0&color=10b981)](https://github.com/Alexpetkanov13/SkTestLab)
-[![VS Code: 1.96+](https://img.shields.io/static/v1?label=VS%20Code&message=1.96%2B&color=007acc)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/install.md)
-[![Platform: Windows x64](https://img.shields.io/static/v1?label=Platform&message=Windows%20x64&color=475569)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
-[![Paper: 1.21+ target](https://img.shields.io/static/v1?label=Paper&message=1.21%2B%20target&color=0284c7)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
-[![Skript: 2.9–2.17 verified](https://img.shields.io/static/v1?label=Skript&message=2.9%E2%80%932.17%20verified&color=f97316)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
-[![Java: 21 tested](https://img.shields.io/static/v1?label=Java&message=21%20tested&color=dc2626)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/compatibility.md)
-[![License: MIT](https://img.shields.io/static/v1?label=License&message=MIT&color=65a30d)](https://github.com/Alexpetkanov13/SkTestLab/blob/main/LICENSE.txt)
+[Download 1.0.0](https://github.com/Alexpetkanov13/SkTestLab/releases/tag/v1.0.0) · [Getting started](docs/getting-started.md) · [Documentation](docs/testing-guide.md) · [Support](https://github.com/Alexpetkanov13/SkTestLab/issues)
 
-[Download 1.0.0](https://github.com/Alexpetkanov13/SkTestLab/releases/tag/v1.0.0) · [Getting started](https://github.com/Alexpetkanov13/SkTestLab/blob/main/docs/getting-started.md) · [Support](https://github.com/Alexpetkanov13/SkTestLab/issues)
+</div>
 
 ---
 
@@ -65,6 +66,9 @@ Configure Runtime, then run it from Test Explorer. Keep `.sk` and `.sktest.json`
 
 ## Features
 
+<table>
+<tr><td width="50%" valign="top">
+
 ### 🔎 Diagnostics while you write
 
 - Twelve configurable diagnostic rules with confidence labels.
@@ -86,6 +90,8 @@ Configure Runtime, then run it from Test Explorer. Keep `.sk` and `.sktest.json`
 - Disposable server environments, loopback networking, and owned-directory cleanup.
 - Observed runtime versions and console evidence retained with results.
 
+</td><td width="50%" valign="top">
+
 ### ▶️ Native VS Code workflow
 
 - Discover and organize tests in Test Explorer.
@@ -99,6 +105,16 @@ Configure Runtime, then run it from Test Explorer. Keep `.sk` and `.sktest.json`
 - Source links, console excerpts, workspace history, and runtime readiness checks.
 - Trends for comparable test selections and slowest-test insights.
 - Export JSON, HTML, or JUnit reports; use the offline CLI for scripted checks.
+
+### 🎨 Your theme, your workspace
+
+- White, Dark, or Follow VS Code.
+- Appearance remembered independently of the editor theme.
+- Source links, runtime readiness, and direct test actions.
+- No account or telemetry required.
+
+</td></tr>
+</table>
 
 ## 🎨 Your dashboard, your style
 

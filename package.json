@@ -10,7 +10,7 @@
     "vscode": "^1.96.0"
   },
   "categories": [
-    "Testing Programming Languages",
+    "Testing",
     "Linters"
   ],
   "keywords": [
@@ -41,7 +41,7 @@
     "format:check": "prettier --check .",
     "test": "vitest run",
     "test:integration": "npm run build && tsc -p test/integration && vscode-test",
-    "package": "npm run build && vsce package --target win32-x64 --allow-missing-repository --no-rewrite-relative-links",
+    "package": "npm run build && vsce package --target win32-x64 --allow-missing-repository",
     "vscode:prepublish": "npm run check && npm run build",
     "test:project": "npm run build && tsc -p test/integration && node scripts/test-project.mjs",
     "test:runtime": "npm run check && esbuild test/runtime/real-server.ts --bundle --platform=node --format=esm --outfile=.vscode-test/runtime-smoke.mjs && node .vscode-test/runtime-smoke.mjs",
